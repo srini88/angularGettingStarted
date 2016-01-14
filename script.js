@@ -1,17 +1,38 @@
 
-var work = function(){
-	console.log("working hard!");
-}
+// now we need an object 
+// I need a worker object 
+// functions as modules 
 
-work();
 
-// passing another function as a variable and in this function executing the other function
+// function returning an object 
+// createWorker gonna return an object
+// this is called revealing module pattern 
 
-// we providing some abstraction,  doWork helper method 
-// using function as a basiss as abstraction
-// functions as abstractions - functions to build module  ,functions to avoid global variables 
-var doWork = function(f){
-	f();
-}
 
-doWork(work);
+// still we have global variables problem 
+var createWorker = function(){
+
+	// private implemntation details 
+	var workCount = 0;
+	var task1 = function(){
+		workCount +=1;
+		console.log("task1 logging   " + workCount);
+	};
+
+	var task2 = function(){
+		workCount +=1;
+		console.log("task2 logging  " + workCount);
+	};
+	// we are exposing to the outside world
+	return {
+		job1: task1,
+		job2: task2
+	};
+
+};
+
+
+var worker  = createWorker();
+
+worker.job1();
+worker.job2();
