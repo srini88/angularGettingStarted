@@ -237,6 +237,34 @@ directives work in both directions
 put shit from view into the model - use the directive ng-model 
 specify an expression, and ng-model will push the value of the input into the scope object 
 
+------ng-repeat----
+dealiing with array of objects when we go to https://api.github.com/users/srini88/repos
+[
+{
+id: 48929868,
+name: "angular",
+full_name: "srini88/angular",
+owner: {
+login: "srini88",
+id: 3435834,
+avatar_url: "https://avatars.githubusercontent.com/u/3435834?v=3",
+gravatar_id: "",
+url: "https://api.github.com/users/srini88",
+html_url: "https://github.com/srini88",
+followers_url: "https://api.github.com/users/srini88/followers",
+following_url: "https://api.github.com/users/srini88/following{/other_user}",
+gists_url: "https://api.github.com/users/srini88/gists{/gist_id}",
+starred_url: "https://api.github.com/users/srini88/starred{/owner}{/repo}",
+subscriptions_url: "https://api.github.com/users/srini88/subscriptions",
+organizations_url: "https://api.github.com/users/srini88/orgs",
+repos_url: "https://api.github.com/users/srini88/repos",
+events_url: "https://api.github.com/users/srini88/events{/privacy}",
+received_events_url: "https://api.github.com/users/srini88/received_events",
+type: "User",
+site_admin: false
+},
+
+
 
 
 

@@ -15,8 +15,9 @@ myApp.controller('myController', ['$scope','$http', function ($scope, $http){
 	// in ng-model we have the userName of the user you wantto search 
 	$scope.search = function()
 	{
+		// url is this https://api.github.com/users/srini88/repos
 		// telling then to call onUserComplete when http request is successful
-		$http.get("https://api.github.com/users/" + $scope.userName)
+		$http.get("https://api.github.com/users/" + $scope.userName +"/repos")
 		 .then(onUserComplete, onError);  //then is only invoked if the call is successful 
 	}
 
