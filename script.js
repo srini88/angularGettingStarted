@@ -45,6 +45,7 @@ myApp.controller('myController', ['$scope','$http', '$interval', '$log', functio
 		 // we fetched once 
 		if (remCount){
 			$interval.cancel(remCount);
+			$scope.countdown = null;
 		}
 
 	}
