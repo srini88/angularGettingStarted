@@ -2,13 +2,23 @@
 var myApp = angular.module('myApp',[]);
 
 myApp.controller('myController', ['$scope','$http', function ($scope, $http){
-
+	//repos_url has repos_url: "https://api.github.com/users/srini88/repos
 	var onUserComplete = function(response){
 		$scope.user = response.data;
+		console.log($scope.user);
+		//alert($scope.user.repos_url);
+		$http.get($scope.user.repos_url)
+		.then(rePos, onError);
+
+
+	};
+	var rePos = function(response){
+		$scope.rePos = response.data;
+		// /alert(rePos);
 	};
 
 	var onError = function(reason){
-		$scope.error = "Could not fetch the user";
+		$scope.error = "Could not fetch the data";
 	};
 
 	// remember $scope very important - because search is coming from the view 
@@ -17,7 +27,7 @@ myApp.controller('myController', ['$scope','$http', function ($scope, $http){
 	{
 		// url is this https://api.github.com/users/srini88/repos
 		// telling then to call onUserComplete when http request is successful
-		$http.get("https://api.github.com/users/" + $scope.userName +"/repos")
+		$http.get("https://api.github.com/users/" + $scope.userName)
 		 .then(onUserComplete, onError);  //then is only invoked if the call is successful 
 	}
 

@@ -22,32 +22,29 @@ Enter the name of the User <input type="text" required placeholder = "Search USR
 <div>
 	{{error}}
 
-	
-<ul ng-repeat="eachRepo in user">
-<li>Repo Number:  {{$index + 1}}</li>
-<br>	
-<li> {{eachRepo.id}}</li>
-<br>
-<li> {{eachRepo.name}}</li>
-<br>
-<li> {{eachRepo.full_name}}</li>
-<br>
-<li> {{eachRepo.owner.login}}</li>
-<br>
-<li> {{eachRepo.owner.avatar_url}}</li>
-
-<hr>
-</ul>
-
-<!-- id: 48929868,
-name: "angular",
-full_name: "srini88/angular",
-owner: {
-login: "srini88",
-id: 3435834,
-avatar_url: "https://avatars.githubusercontent.com/u/3435834?v=3", -->
-
 </div>
+
+<!-- usually array we get can be displayed in table or UL, UL I did in previous commit, here table -->
+<table>
+	
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Stars</th>
+			<th>Language</th>
+		</tr>
+
+	</thead>
+<tbody>
+	<tr ng-repeat="repo in rePos">   <!-- ng-repeat is like a foreach loop -->
+		<td>{{repo.name}}</td>
+		<td>{{repo.language}}</td>
+		<td>{{repo.id | number}}</td>   <!--for number formatting to print it with commas-->
+	</tr>
+</tbody>
+
+
+</table>
 
 
 
