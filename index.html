@@ -26,7 +26,6 @@ Enter the name of the User <input type="text" required placeholder = "Search USR
 
 <!-- usually array we get can be displayed in table or UL, UL I did in previous commit, here table -->
 <table>
-	
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -42,9 +41,23 @@ Enter the name of the User <input type="text" required placeholder = "Search USR
 		<td>{{repo.id | number}}</td>   <!--for number formatting to print it with commas-->
 	</tr>
 </tbody>
-
-
 </table>
+
+
+<ul ng-controller="sampleController">
+	
+<!-- <li ng-repeat="cust in customer | filter: 'v'"> -->   <!-- prints names that contains V not starting with V -->
+<li ng-repeat="cust in customer | filter: 'v'">
+	{{cust.name + ', ' +  cust.country}}
+	{{price | currency}} 
+</li>
+
+
+
+</ul>
+
+
+
 
 
 

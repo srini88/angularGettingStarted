@@ -51,3 +51,22 @@ myApp.controller('secondController', ['$scope','$http', function($scope, $http){
 		$scope.error = "Could not fetch shit"; 
 	});
 }]);
+
+
+
+myApp.controller('sampleController', ['$scope', function($scope){
+	
+	$scope.customer  = [
+        {name:'Jani',country:'Norway'},
+        {name:'Carl',country:'Sweden'},
+        {name:'Margareth',country:'England'},
+        {name:'Hege',country:'Norway'},
+        {name:'Joe',country:'Denmark'},
+        {name:'Gustav',country:'Sweden'},
+        {name:'Birgit',country:'Denmark'},
+        {name:'Mary',country:'England'},
+        {name:'Kai',country:'Norway'}
+        ];
+
+    $scope.price = 56;    
+}]);

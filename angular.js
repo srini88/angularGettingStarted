@@ -266,16 +266,32 @@ site_admin: false
 
 
 
+-----angular JS filters 
+
+Filters are added to directives, like ng-repeat, by using the pipe character |, followed by a filter:
+currency Format a number to a currency format.
+date Format a date to a specified format.
+filter Select a subset of items from an array.
+json Format an object to a JSON string.
+limitTo Limits an array/string, into a specified number of elements/characters.
+lowercase Format a string to lower case.
+number Format a number to a string.
+orderBy Orders an array by an expression.
+uppercase Format a string to upper case.
+
+
+{{price | currency}} prints $50   in js $scope.price = 50;
 
 
 
+The filter filter selects a subset of an array.
+
+The filter filter can only be used on arrays, and it returns an array containing only the matching items.
 
 
-
-
-
-
-
+<li ng-repeat="x in names | filter : 'i'">
+    {{ x }}
+  </li>
 
 
 
