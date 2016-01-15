@@ -12,11 +12,25 @@
 <h1>{{message.length}}</h1>   <!-- prints out the length of the message -->
 
 <div>
-	
 
-First Name : {{person.firstName}}
+
+{{error}}
+
+login: {{user.id}}
 <hr>
-Last Name : {{person.lastName}}
+Login name : {{user.login}}
+
+
+<img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+
+<!-- "login": "srini88",
+  "id": 3435834,
+  "avatar_url": "https://avatars.githubusercontent.com/u/3435834?v=3",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/srini88",
+  "html_url": "https://github.com/srini88", -->
+
+
 
 </div>
 
