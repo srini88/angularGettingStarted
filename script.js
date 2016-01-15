@@ -54,6 +54,8 @@ myApp.controller('secondController', ['$scope','$http', function($scope, $http){
 
 
 
+
+
 myApp.controller('sampleController', ['$scope', function($scope){
 	
 	$scope.customer  = [
@@ -68,5 +70,9 @@ myApp.controller('sampleController', ['$scope', function($scope){
         {name:'Kai',country:'Norway'}
         ];
 
-    $scope.price = 56;    
+    $scope.price = 56; 
+	// instead of putting hardcoded string in the view, you are sorting now by a property in the model 
+	$scope.repoSortOrder = "-name";
+
+
 }]);

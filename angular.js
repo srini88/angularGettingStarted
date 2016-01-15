@@ -268,6 +268,7 @@ site_admin: false
 
 -----angular JS filters 
 
+// Built in filters with angular 
 Filters are added to directives, like ng-repeat, by using the pipe character |, followed by a filter:
 currency Format a number to a currency format.
 date Format a date to a specified format.
@@ -293,9 +294,11 @@ The filter filter can only be used on arrays, and it returns an array containing
     {{ x }}
   </li>
 
+have to use orderBy: 'name' istead of orderBy:'cust.name'
 
+orderBy: 'name'  needs quotations  coz orderBy needs to know property to orderBy, so that angular will evaluate , (it is a string literal --- 
 
-
+<li ng-repeat="cust in customer | orderBy: '-name'">  - does descending + does ascending 
 
 
 
