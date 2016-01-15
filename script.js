@@ -2,7 +2,7 @@
 var myApp = angular.module('myApp',[]);
 
 // adding interval service for setInterval js method
-myApp.controller('myController', ['$scope','$http', '$interval', function ($scope, $http, $interval){
+myApp.controller('myController', ['$scope','$http', '$interval', '$log', function ($scope, $http, $interval, $log){
 	var onUserComplete = function(response){
 		$scope.user = response.data;
 		console.log($scope.user);
@@ -27,30 +27,30 @@ myApp.controller('myController', ['$scope','$http', '$interval', function ($scop
 		}
 	}
 
+	// we dont want that countdown time to be showing 0 on the page after we see the results and we dont want the automatic trigger when the user already entered the user name within 5 secs
+
+	var remCount = null;
+
 	var startCountdown = function(){
 		// 3rd para number of intervals - without it wont stop
-		$interval(decrementCountdown, 1000, 5);
+		// this interval is gonna return an object to me 
+		remCount = $interval(decrementCountdown, 1000, 5);
 	}
 
 	$scope.search = function(username)
 	{
+		$log.info("Searching for " + username);
 		$http.get("https://api.github.com/users/" + username)
 		 .then(onUserComplete, onError); 
+		 // we fetched once 
+		if (remCount){
+			$interval.cancel(remCount);
+		}
+
 	}
 	$scope.message = "Srinivas is gonna be a top notch angular developer";
 	$scope.countdown = 5;
 	$scope.userName = "srini88";
 	startCountdown();
 
-}]);
-myApp.controller('secondController', ['$scope','$http', function($scope, $http){
-	
-
-	$http.get('http://jsonplaceholder.typicode.com/posts/1')
-	.then(function(response){
-		$scope.output = response.data; 
-	}, 
-	function(reason){
-		$scope.error = "Could not fetch shit"; 
-	});
 }]);

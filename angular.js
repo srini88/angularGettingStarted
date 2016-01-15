@@ -332,5 +332,6 @@ $timeout and $interval
 
 
 --- log service of angular 
+log service methods - log , info, error, warn, debug
 
 
