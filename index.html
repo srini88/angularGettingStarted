@@ -8,46 +8,40 @@
 <body>
 
 <div ng-controller= "myController">
-<h1>{{message}}</h1>
-<h1>{{message.length}}</h1>   <!-- prints out the length of the message -->
+
+<form name ="searchUser" ng-submit="search()"> <!-- also could use ng-click on the submit button, but we are using required tag in the input placeholder, that's whywe used ng-submit on the form --> 
+	
+	{{userName}}
+Enter the name of the User <input type="text" required placeholder = "Search USR here" ng-model="userName"> 
+
+<input type="submit" value="SUBMIT THIS SHIT" >
+
+</form>
+
 
 <div>
-
-
-{{error}}
-
-{{user}}
-
-login: {{user.id}}
-<hr>
-Login name : {{user.login}}
-
-
-<img ng-src="{{user.avatar_url}}" title="{{user.name}}">
-
-<!-- "login": "srini88",
-  "id": 3435834,
-  "avatar_url": "https://avatars.githubusercontent.com/u/3435834?v=3",
-  "gravatar_id": "",
-  "url": "https://api.github.com/users/srini88",
-  "html_url": "https://github.com/srini88", -->
-
-
-</div>
-
-
-
-</div>
-
-
-<div ng-controller="secondController">
-	
-
-
-	{{output}}
-
 	{{error}}
+
+	login: {{user.id}}
+	<hr>
+	Login name : {{user.login}}
+
+	<img ng-src="{{user.avatar_url}}" width="40" height="50"  title="{{user.name}}">
+
+	<!-- "login": "srini88",
+	  "id": 3435834,
+	  "avatar_url": "https://avatars.githubusercontent.com/u/3435834?v=3",
+	  "gravatar_id": "",
+	  "url": "https://api.github.com/users/srini88",
+	  "html_url": "https://github.com/srini88", -->
+
+
 </div>
+
+
+
+</div>
+
 
 
 </body>

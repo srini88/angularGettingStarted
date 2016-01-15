@@ -7,12 +7,20 @@ myApp.controller('myController', ['$scope','$http', function ($scope, $http){
 		$scope.user = response.data;
 	};
 
-	var onError = function(response){
+	var onError = function(reason){
 		$scope.error = "Could not fetch the user";
 	};
-	// telling then to call onUserComplete when http request is successful
-	$http.get("https://api.github.com/users/srini88")
+
+	// remember $scope very important - because search is coming from the view 
+	// in ng-model we have the userName of the user you wantto search 
+	$scope.search = function()
+	{
+		// telling then to call onUserComplete when http request is successful
+		$http.get("https://api.github.com/users/" + $scope.userName)
 		 .then(onUserComplete, onError);  //then is only invoked if the call is successful 
+	}
+
+	
 	$scope.message = "Srinivas is gonna be a top notch angular developer";
 
 }]);
@@ -28,7 +36,7 @@ myApp.controller('secondController', ['$scope','$http', function($scope, $http){
 	.then(function(response){
 		$scope.output = response.data; 
 	}, 
-	function(response){
+	function(reason){
 		$scope.error = "Could not fetch shit"; 
 	});
 }]);

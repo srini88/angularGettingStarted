@@ -208,3 +208,56 @@ $routeProvider
        templateUrl: 'profile.html',
        controller: 'ProfileController'
    })
+'
+    controllers in global name space not a good idea bro
+    controllers live inside angular modules to avoid global namespace 
+
+    one module many controllers --- many modules in an app
+
+    provide some sort of container and live in some place and not in global namespace 
+
+angular provided by angularJS is a particular module that is in global namespace so that we developers can use it 
+
+modules depending on another modules 
+app.controller -- this controller datatype is used to register a controller on that particular module 
+
+when you bootstrap the application, you got to tell angular about this module 
+
+
+
+controllers manipulate scope, 
+module for our controllers to keep controllers out of global scope 
+controllers use http service , service returns promise objects - you get data by using then method
+
+
+----directives and views----------
+
+
+directives work in both directions 
+put shit from view into the model - use the directive ng-model 
+specify an expression, and ng-model will push the value of the input into the scope object 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
