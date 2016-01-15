@@ -348,3 +348,25 @@ $location service in angular --- model can talk to location service,
 brwoser window so small, user does not know auto refresh happened and got the results,   we need to make sure user sees that, for that identify some element in the results and move the user eye to that location 
 
 use anchorscroll 
+
+--- why woold I ever want to write service 
+
+/// create reussable logic  instead of duplication code 
+// store shared data - share data between controller 
+// angular only instantiates a single instance of each service for a given application - if you use a service for 3 diff controllers, they will get the same service instance- means same data 
+// services save complexity 
+
+
+we will build a github service - encapsulate api calls to github 
+instead o fusing http service directly from controller, use http from this new services, easy to manage complexity \
+
+http://www.tutorialspoint.com/angularjs/angularjs_services.htm
+
+AngularJS supports the concepts of "Separation of Concerns" using services architecture. Services are javascript functions and are responsible to do a specific tasks only. This makes them an individual entity which is maintainable and testable. Controllers, filters can call them as on requirement basis. Services are normally injected using dependency injection mechanism of AngularJS.
+
+AngularJS provides many inbuilt services for example, $http, $route, $window, $location etc. Each service is responsible for a specific task for example, $http is used to make ajax call to get the server data. $route is used to define the routing information and so on. Inbuilt services are always prefixed with $ symbol.
+
+There are two ways to create a service.
+
+factory
+service

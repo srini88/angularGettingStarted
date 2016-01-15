@@ -1,5 +1,8 @@
 
+// if I had removed the array in the end, getting error 
+// 	var myApp = angular.module('myApp');
 var myApp = angular.module('myApp',[]);
+
 
 // adding anchorscroll and location
 myApp.controller('myController', ['$scope','$http', '$interval', '$log','$anchorScroll','$location', 
