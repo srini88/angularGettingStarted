@@ -71,8 +71,4 @@ myApp.controller('sampleController', ['$scope', function($scope){
         ];
 
     $scope.price = 56; 
-	// instead of putting hardcoded string in the view, you are sorting now by a property in the model 
-	$scope.repoSortOrder = "-name";
-
-
 }]);

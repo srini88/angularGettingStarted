@@ -44,30 +44,18 @@ Enter the name of the User <input type="text" required placeholder = "Search USR
 </table>
 
 
+<select ng-model="repoSortOrder">
+	<option value="+name">Asc Name</option>
+	<option value="-name">Des Name</option>
+	<option value="-country">Country</option>
+</select>
+
 <ul ng-controller="sampleController">
-	
-<!-- <li ng-repeat="cust in customer | filter: 'v'"> -->   <!-- prints names that contains V not starting with V -->
-<!-- <li ng-repeat="cust in customer | orderBy: '-name'"> -->
-<!-- 
-now writing a custom filter  -->
-
-<li ng-repeat="cust in customer | orderBy:repoSortOrder">
-
-<!-- {{cust.name | json}} prints "Jani" $56.00
-"Carl" $56.00 -->
-	{{cust.name + ', ' +  cust.country}}
-	{{price | currency}} 
-</li>
-
-
-
+	<li ng-repeat="cust in customer | orderBy:repoSortOrder">
+		{{cust.name + ', ' +  cust.country}}
+		{{price | currency}} 
+	</li>
 </ul>
-
-
-
-
-
-
 </div>
 
 
