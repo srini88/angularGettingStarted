@@ -1,8 +1,9 @@
 
 var myApp = angular.module('myApp',[]);
 
-// adding interval service for setInterval js method
-myApp.controller('myController', ['$scope','$http', '$interval', '$log', function ($scope, $http, $interval, $log){
+// adding anchorscroll and location
+myApp.controller('myController', ['$scope','$http', '$interval', '$log','$anchorScroll','$location', 
+	function ($scope, $http, $interval, $log, $anchorScroll,$location){
 	var onUserComplete = function(response){
 		$scope.user = response.data;
 		console.log($scope.user);
@@ -13,7 +14,13 @@ myApp.controller('myController', ['$scope','$http', '$interval', '$log', functio
 
 	var rePos = function(response){
 		$scope.rePos = response.data;
+		// location service, please set the hash or fragment identifier to user details,  
+
+		$location.hash("userDetails");
+		// anchorscroll is some function that I can invoke 
+		$anchorScroll();
 		// /alert(rePos);
+		// getting url like this http://localhost/rejuvenate/angularGettingStarted/##userDetails
 	};
 
 	var onError = function(reason){

@@ -335,3 +335,16 @@ $timeout and $interval
 log service methods - log , info, error, warn, debug
 
 
+
+UI related services ---- sometimes more sense to use imperative js to interact with view in more direct fashion than relying on declarative html with directives inside 
+some scenarios: force browser to new url ,...
+
+
+$location service in angular --- model can talk to location service,
+
+(location in the address bar )
+
+----------------
+brwoser window so small, user does not know auto refresh happened and got the results,   we need to make sure user sees that, for that identify some element in the results and move the user eye to that location 
+
+use anchorscroll 
