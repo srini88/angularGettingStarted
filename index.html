@@ -9,17 +9,19 @@
 
 <div ng-controller= "myController">
 
-<form name ="searchUser" ng-submit="search()"> <!-- also could use ng-click on the submit button, but we are using required tag in the input placeholder, that's whywe used ng-submit on the form --> 
-	
-	{{userName}}
-Enter the name of the User <input type="text" required placeholder = "Search USR here" ng-model="userName"> 
+<h1>{{message}} </h1>
+{{countdown}}
 
-<input type="submit" value="SUBMIT THIS SHIT" >
+<form name ="searchUser" ng-submit="search(userName)">
 
-<!-- with whatever we have in the form right now, right when you load the page you see the table name entries like Name, stars and language  -->
+	Enter the name of the User 
+	<br>
+	<input type="text" required placeholder = "Search USR here" ng-model="userName"> 
+	<input type="submit" value="SUBMIT THIS SHIT" >
+
 </form>
 
-<!-- you have to specify expression, alue that expression yields, shoudl point to mark up, giving string literal, use its value, don't evaluate, that's why use quotes below -->
+<hr>
 <div ng-include="'userdetails.html'">
 	
 </div>

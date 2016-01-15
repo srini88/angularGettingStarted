@@ -1,22 +1,22 @@
-		<div>
-			{{error}}
-		</div>
+<div>
+	{{error}}
+</div>
 
-		<table ng-show="rePos"> <!-- with this you wont see the markup -->
-		<!-- <table ng-hide="!rePos">  same as above -->
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Stars</th>
-					<th>Language</th>
-				</tr>
+<table ng-show="rePos"> <!-- with this you wont see the markup -->
+<!-- <table ng-hide="!rePos">  same as above -->
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Stars</th>
+			<th>Language</th>
+		</tr>
 
-			</thead>
-		<tbody>
-			<tr ng-repeat="repo in rePos">   <!-- ng-repeat is like a foreach loop -->
-				<td>{{repo.name}}</td>
-				<td>{{repo.language}}</td>
-				<td>{{repo.id | number}}</td>   <!--for number formatting to print it with commas-->
-			</tr>
-		</tbody>
-		</table>
+	</thead>
+<tbody>
+	<tr ng-repeat="repo in rePos">   <!-- ng-repeat is like a foreach loop -->
+		<td>{{repo.name}}</td>
+		<td>{{repo.language}}</td>
+		<td>{{repo.id | number}}</td>   <!--for number formatting to print it with commas-->
+	</tr>
+</tbody>
+</table>

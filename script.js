@@ -1,17 +1,16 @@
 
 var myApp = angular.module('myApp',[]);
 
-myApp.controller('myController', ['$scope','$http', function ($scope, $http){
-	//repos_url has repos_url: "https://api.github.com/users/srini88/repos
+// adding interval service for setInterval js method
+myApp.controller('myController', ['$scope','$http', '$interval', function ($scope, $http, $interval){
 	var onUserComplete = function(response){
 		$scope.user = response.data;
 		console.log($scope.user);
 		//alert($scope.user.repos_url);
 		$http.get($scope.user.repos_url)
 		.then(rePos, onError);
-
-
 	};
+
 	var rePos = function(response){
 		$scope.rePos = response.data;
 		// /alert(rePos);
@@ -21,25 +20,29 @@ myApp.controller('myController', ['$scope','$http', function ($scope, $http){
 		$scope.error = "Could not fetch the data";
 	};
 
-	// remember $scope very important - because search is coming from the view 
-	// in ng-model we have the userName of the user you wantto search 
-	$scope.search = function()
-	{
-		// url is this https://api.github.com/users/srini88/repos
-		// telling then to call onUserComplete when http request is successful
-		$http.get("https://api.github.com/users/" + $scope.userName)
-		 .then(onUserComplete, onError);  //then is only invoked if the call is successful 
+	var decrementCountdown = function(){
+		$scope.countdown -=1;
+		if ($scope.countdown <1){
+			$scope.search($scope.userName);
+		}
 	}
 
-	
+	var startCountdown = function(){
+		// 3rd para number of intervals - without it wont stop
+		$interval(decrementCountdown, 1000, 5);
+	}
+
+	$scope.search = function(username)
+	{
+		$http.get("https://api.github.com/users/" + username)
+		 .then(onUserComplete, onError); 
+	}
 	$scope.message = "Srinivas is gonna be a top notch angular developer";
+	$scope.countdown = 5;
+	$scope.userName = "srini88";
+	startCountdown();
 
 }]);
-
-
-
-
-
 myApp.controller('secondController', ['$scope','$http', function($scope, $http){
 	
 
@@ -50,25 +53,4 @@ myApp.controller('secondController', ['$scope','$http', function($scope, $http){
 	function(reason){
 		$scope.error = "Could not fetch shit"; 
 	});
-}]);
-
-
-
-
-
-myApp.controller('sampleController', ['$scope', function($scope){
-	
-	$scope.customer  = [
-        {name:'Jani',country:'Norway'},
-        {name:'Carl',country:'Sweden'},
-        {name:'Margareth',country:'England'},
-        {name:'Hege',country:'Norway'},
-        {name:'Joe',country:'Denmark'},
-        {name:'Gustav',country:'Sweden'},
-        {name:'Birgit',country:'Denmark'},
-        {name:'Mary',country:'England'},
-        {name:'Kai',country:'Norway'}
-        ];
-
-    $scope.price = 56; 
 }]);

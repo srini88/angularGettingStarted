@@ -305,8 +305,32 @@ ng-include can bring html from another soruce or file
 to reuse markup in other areas of application 
 
 
+in angular, a service is a componenet that does a specific job
+$http is a service 
+
+aslo we can write out own custom service 
+
+directive serves as intermediaty between model and view 
+services   -  if the logic cannot fit in the model or view or directive, then service is something that will fit,  put logic in service and logic can be used anywhere in the app... 
+
+directives can also use services, 
+services can offer functionality to model and directives in a reusable way and contain logic that eiter does not belon in model or directive, 
+
+services --- packgae up some fucntionality - refactor logic out of controller and put it in services 
+
+---------------------------for next commit
+Built IN service - timeout and interval services 
+
+give only 5 seconds === to user to enter search item -- and by default have something there for to be searched on in the search box 
+
+-- angular provides two services for setTimeout and setInterval instead of using vanilla functions - use the below services 
+
+good coz of unit testing 
 
 
+$timeout and $interval 
 
+
+--- log service of angular 
 
 
