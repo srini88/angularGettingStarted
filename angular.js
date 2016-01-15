@@ -3,6 +3,7 @@
 // angular js serivces in depth brice wilson pluralsight
 
 
+
 // sublimeText angular code completion : http://weblogs.asp.net/dwahlin/using-the-angularjs-package-for-sublime-text
 
 
@@ -141,8 +142,69 @@ when I do this https://api.github.com/users/srini88
   "updated_at": "2016-01-04T09:25:18Z"
 }
 
+// angular promise weather forecase - son father
+http://andyshora.com/promises-angularjs-explained-as-cartoon.html
+
+r. When the dad has the forecast, he'll either pack up the boat, or stay inside. The important thing to note here, is the son's trip up the hill shouldn't 'block' the dad from doing anything, so this is why the situation is perfect for the creation of a promise, which can be resolved (fulfilled or rejected) later on.
+
+'
+// function somewhere in father-controller.js
+        var makePromiseWithSon = function() {
+            // This service's function returns a promise, but we'll deal with that shortly
+            SonService.getWeather()
+                // then() called when son gets back
+                .then(function(data) {
+                    // promise fulfilled
+                    if (data.forecast==='good') {
+                        prepareFishingTrip();
+                    } else {
+                        prepareSundayRoastDinner();
+                    }
+                }, function(error) {
+                    // promise rejected, could log the error with: console.log('error', error);
+                    prepareSundayRoastDinner();
+                });
+        };
 
 
+A promise represents the eventual result of an operation. You can use a promise to specify what to do when an operation eventually succeeds or fails.
 
 
+  This code uses the $http service to perform an HTTP GET on the url '/api/my/name'. Let's say that this is an api we've implemented on our server that returns the name of the logged in user.
 
+Now a common mistake for JavaScript newcomers might be to assume that the function returns the name:
+
+// The WRONG way!
+var name = $http.get("/api/my/name");  
+It doesn't - and in fact it can't. An HTTP request has to be executed, it'll take a while before it returns - it might not return at all if there are errors. Remember, when we make requests in JavaScript we're using ajax which is asynchronous javascript and xml. The key word here is asynchronous - we return control to the browser, let it make a request and give it a function to call when the request completes.
+
+$http.get("/api/my/name")
+  .then(
+    /* success */
+    function(response) {
+      console.log("Your name is: " + response.data);
+    },
+    /* failure */
+    function(error) {
+      console.log("The request failed: " + error);
+  });
+
+How do Promises Work?
+Promises are not actually complicated, they're objects that contain a reference to functions to call when something fails or succeeds.'.
+
+Under the hood, AngularJS actually wires up a promise for an HTTP request in a way a bit like this
+
+Advanced Promises - Routing
+There's a particular area of AngularJS that uses promises to great effect, and that's the router.
+
+Let's imagine we have a router like the following:
+
+$routeProvider
+   .when('/home', {
+       templateUrl: 'home.html',
+       controller: 'MainController'
+   })
+   .when('/profile', {
+       templateUrl: 'profile.html',
+       controller: 'ProfileController'
+   })
