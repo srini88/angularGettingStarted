@@ -16,49 +16,13 @@ Enter the name of the User <input type="text" required placeholder = "Search USR
 
 <input type="submit" value="SUBMIT THIS SHIT" >
 
+<!-- with whatever we have in the form right now, right when you load the page you see the table name entries like Name, stars and language  -->
 </form>
 
-
-<div>
-	{{error}}
-
+<!-- you have to specify expression, alue that expression yields, shoudl point to mark up, giving string literal, use its value, don't evaluate, that's why use quotes below -->
+<div ng-include="'userdetails.html'">
+	
 </div>
-
-<!-- usually array we get can be displayed in table or UL, UL I did in previous commit, here table -->
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Stars</th>
-			<th>Language</th>
-		</tr>
-
-	</thead>
-<tbody>
-	<tr ng-repeat="repo in rePos">   <!-- ng-repeat is like a foreach loop -->
-		<td>{{repo.name}}</td>
-		<td>{{repo.language}}</td>
-		<td>{{repo.id | number}}</td>   <!--for number formatting to print it with commas-->
-	</tr>
-</tbody>
-</table>
-
-
-<select ng-model="repoSortOrder">
-	<option value="+name">Asc Name</option>
-	<option value="-name">Des Name</option>
-	<option value="-country">Country</option>
-</select>
-
-<ul ng-controller="sampleController">
-	<li ng-repeat="cust in customer | orderBy:repoSortOrder">
-		{{cust.name + ', ' +  cust.country}}
-		{{price | currency}} 
-	</li>
-</ul>
-</div>
-
-
 
 </body>
 </html>

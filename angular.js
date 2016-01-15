@@ -301,6 +301,8 @@ orderBy: 'name'  needs quotations  coz orderBy needs to know property to orderBy
 <li ng-repeat="cust in customer | orderBy: '-name'">  - does descending + does ascending 
 
 
+ng-include can bring html from another soruce or file 
+to reuse markup in other areas of application 
 
 
 
