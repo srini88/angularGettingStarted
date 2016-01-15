@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app ="myApp">
 <head>
 	<title>Angular Getting Started</title>
 </head>
@@ -7,8 +7,22 @@
 <script type="text/javascript" src="script.js"></script>
 <body>
 
+<div ng-controller= "myController">
+<h1>{{message}}</h1>
+<h1>{{message.length}}</h1>   <!-- prints out the length of the message -->
 
-{{2+2}}
+<div>
+	
+
+First Name : {{person.firstName}}
+<hr>
+Last Name : {{person.lastName}}
+
+</div>
+
+
+
+</div>
 
 </body>
 </html>
